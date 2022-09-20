@@ -22,7 +22,7 @@ function parse_maze(str) {
         // Ensure we have consistent widths
         maze_width ??= maze[i].length;
         if(maze[i].length !== maze_width) {
-            return Err("Inconsistent maze width\n(Not all rows have the same number of cells)");
+            return Err("Invalid maze dimensions\n(Not all rows have the same number of cells)");
         }
 
         // Strip trailing space
@@ -41,6 +41,11 @@ function parse_maze(str) {
                 return Err("Invalid cell value\n(Some cells are less than 0 or greater than 15)");
             }
         }
+    }
+
+    // Ensure the maze isn't empty
+    if(maze.length === 0 || maze[0].length === 0) {
+        return Err("Invalid maze dimensions\n(Maze cannot be empty)")
     }
     
     return Ok(maze);

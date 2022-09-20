@@ -1,0 +1,26 @@
+body {
+    background-color: #272E36;
+    font-family: "Arial", sans-serif;
+    color: #74889E;
+}
+
+#maze_output {
+    border: 0px;
+    user-select: none;
+    outline: none;
+}
+
+#maze_input {
+    background-color: #2A3C50;
+    color: #74889E;
+}
+
+#title {
+    margin-top: 16px;
+    margin-bottom: 0px;
+}
+
+#author {
+    margin-top: 2px;
+    margin-bottom: 8px;
+}

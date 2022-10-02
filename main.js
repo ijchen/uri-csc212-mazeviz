@@ -9,14 +9,12 @@
 //   - Maze is a 2d array of ints with equal column widths
 //   - MazeErr is a string describing what went wrong
 function parse_maze(str) {
-    const maze = str.split("\n");
-    
-    // Strip trailing newline
-    if(maze[maze.length - 1].length === 0) maze.pop();
-    
+    const maze = str.split("\n")
+                    .filter(s => s.trim()); // Ignore whitespace lines
+
     let maze_width = null;
     for(let i = 0; i < maze.length; i++) {
-        // Split the row by spaces
+	// Split the row by spaces
         maze[i] = maze[i].split(" ").filter(x => x !== "");
 
         // Ensure we have consistent widths

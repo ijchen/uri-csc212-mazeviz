@@ -1,19 +1,19 @@
 /*
 * Maze viewer
-* v2.0.0
+* v2.1.0
 * By Isaac Chen
-* 9/19/2022
+* With contributions from:
+*   - Calvin Higgins
 */
 
 // Parses a string into a Result<Maze, MazeErr> where:
 //   - Maze is a 2d array of ints with equal column widths
 //   - MazeErr is a string describing what went wrong
 function parse_maze(str) {
-    const maze = str.split("\n");
-    
-    // Strip trailing newline
-    if(maze[maze.length - 1].length === 0) maze.pop();
-    
+    const maze = str
+        .split("\n")
+        .filter(s => s.trim() === ""); // Ignore whitespace-only lines
+
     let maze_width = null;
     for(let i = 0; i < maze.length; i++) {
         // Split the row by spaces

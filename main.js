@@ -12,7 +12,7 @@
 function parse_maze(str) {
     const maze = str
         .split("\n")
-        .filter(s => s.trim() === ""); // Ignore whitespace-only lines
+        .filter(s => s.trim() !== ""); // Ignore whitespace-only lines
 
     let maze_width = null;
     for(let i = 0; i < maze.length; i++) {
